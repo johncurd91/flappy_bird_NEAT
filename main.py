@@ -19,6 +19,7 @@ STAT_FONT = pygame.font.SysFont('comicsans', 50)
 
 GEN = 0
 
+
 class Bird:
     IMGS = BIRD_IMGS
     MAX_ROTATION = 25
@@ -175,8 +176,6 @@ def draw_window(win, birds, pipes, base, score):
     text = STAT_FONT.render('Alive: ' + str(len(birds)), 1, (255, 255, 255))
     win.blit(text, (10, 50))
 
-
-
     base.draw(win)
 
     for bird in birds:
@@ -244,7 +243,6 @@ def eval_genomes(genomes, config):
                     nets.pop(x)
                     ge.pop(x)
 
-
                 if not pipe.passed and pipe.x < bird.x:  # check if bird had passed pipe
                     pipe.passed = True
                     add_pipe = True
@@ -273,8 +271,6 @@ def eval_genomes(genomes, config):
         base.move()
 
         draw_window(win, birds, pipes, base, score)
-
-
 
 
 def run(config_path):
